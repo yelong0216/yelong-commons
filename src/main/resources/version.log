@@ -2,3 +2,9 @@
 
 2020-03-20 v->1.0.1 
 	修改描述
+
+2020-04-20 v->1.0.2
+	1、修改部分方法上面的javadoc
+	2、新增org.yelong.commons.util.map包
+	3、新增org.yelong.commons.lang.Strings类
+	4、修改org.yelong.commons.FileUtils类。新增几个方法

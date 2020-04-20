@@ -18,7 +18,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author 彭飞
+ * @author PengFei
  */
 public class FileUtils {
 	
@@ -116,6 +116,23 @@ public class FileUtils {
 		}
 		return file;
 	}
+	
+	/**
+	 * 创建目录。
+	 * 如果目录存在则删除目录内文件
+	 * 如果目录的抽象路径中的目录不存在则创建。
+	 * @param names the name elements
+	 * @return the file
+	 * @throws IOException
+	 */
+	public static File createDirectoryOverride(String ... names) throws IOException {
+		File file = getFile(names);
+		if( file.exists() ) {
+			org.apache.commons.io.FileUtils.deleteDirectory(file);
+		}
+		file.mkdirs();
+		return file;
+	}
 
 	/**
 	 * filePath的文件是否存在
@@ -126,10 +143,54 @@ public class FileUtils {
 		return getFile(names).exists();
 	}
 
-	private static File getFile(String ... names) {
+	/**
+	 * @see org.apache.commons.io.FileUtils#getFile
+	 */
+	public static File getFile(String ... names) {
 		return org.apache.commons.io.FileUtils.getFile(names);
 	}
 
+	/**
+	 * 清空目录内的所有文件
+	 * Cleans a directory without deleting it.
+	 * @param directory directory to clean
+	 * @throws IOException  in case cleaning is unsuccessful
+	 * @throws IllegalArgumentException if {@code directory} does not exist or is not a directory
+	 */
+	public static void cleanDirectory(final File directory) throws IOException {
+		org.apache.commons.io.FileUtils.cleanDirectory(directory);
+	}
+	
+	/**
+	 * 删除目录(删除目录内的所有文件)
+     * Deletes a directory recursively.
+     *
+     * @param directory directory to delete
+     * @throws IOException              in case deletion is unsuccessful
+     * @throws IllegalArgumentException if {@code directory} does not exist or is not a directory
+     */
+    public static void deleteDirectory(final File directory) throws IOException {
+    	org.apache.commons.io.FileUtils.deleteDirectory(directory);
+    }
+
+    /**
+     * 安静的删除文件（支持目录、文件）
+     * Deletes a file, never throwing an exception. If file is a directory, delete it and all sub-directories.
+     * <p>
+     * The difference between File.delete() and this method are:
+     * <ul>
+     * <li>A directory to be deleted does not have to be empty.</li>
+     * <li>No exceptions are thrown when a file or directory cannot be deleted.</li>
+     * </ul>
+     *
+     * @param file file or directory to delete, can be {@code null}
+     * @return {@code true} if the file or directory was deleted, otherwise
+     * {@code false}
+     */
+    public static boolean deleteQuietly(final File file) {
+    	return org.apache.commons.io.FileUtils.deleteQuietly(file);
+    }
+	
 	/**
 	 * 文件是否存在
 	 * @param filePath

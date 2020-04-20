@@ -12,7 +12,6 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author 彭飞
  * @date 2019年6月10日上午11:46:30
  */
 public class ObjectUtils {
@@ -24,7 +23,6 @@ public class ObjectUtils {
 	 * 	基础类型无法替换</br>
 	 *  不会对不为null的值进行替换
 	 * </p>
-	 * @author 彭飞
 	 * @date 2019年6月10日下午1:27:22
 	 * @param obj
 	 * @param fieldType
@@ -44,7 +42,6 @@ public class ObjectUtils {
 	 *  不会对不为null的值进行替换</br>
 	 *  不对notContainsField中包含的字段进行赋值
 	 * </p>
-	 * @author 彭飞
 	 * @date 2019年6月10日下午1:27:22
 	 * @param obj
 	 * @param fieldType
@@ -62,7 +59,6 @@ public class ObjectUtils {
 	 * 	对对象中指定类型的字段设置为统一的值<br/>
 	 * 	基础类型无法替换<br/>
 	 * </p>
-	 * @author 彭飞
 	 * @date 2019年6月10日下午1:24:33
 	 * @param obj 
 	 * @param fieldType 设置的字段类型
@@ -82,7 +78,6 @@ public class ObjectUtils {
 	 * 	基础类型无法替换<br/>
 	 *  默认排除final字段
 	 * </p>
-	 * @author 彭飞
 	 * @date 2019年6月10日下午1:24:33
 	 * @param obj 
 	 * @param fieldType 设置的字段类型
@@ -148,7 +143,6 @@ public class ObjectUtils {
 	
 	/**
 	 * 获取obj对象中propertyNames数组中所有属性的值<br/>
-	 * @author 彭飞
 	 * @date 2019年8月6日下午3:22:40
 	 * @version 1.0
 	 * @param obj 对象
@@ -169,7 +163,6 @@ public class ObjectUtils {
 	 * 获取obj对象的propertyName属性的值<br/>
 	 * 优先使用get方法获取，如果没有get方法则通过反射获取。
 	 * 如果当前类不存在该属性则通过其父类寻找直至Object类为止都没有找到则抛出{@link NoSuchFieldException}
-	 * @author 彭飞
 	 * @date 2019年7月25日上午11:08:13
 	 * @param obj 对象
 	 * @param propertyName 属性名称
@@ -210,7 +203,6 @@ public class ObjectUtils {
 	/**
 	 * 设置对象属性值<br/>
 	 * 优先使用set方法设置，如果没有set方法则通过反射设置。如果当前类不存在该属性则通过其父类寻找直至Object类为止都没有找到则抛出{@link NoSuchFieldException}
-	 * @author 彭飞
 	 * @date 2019年8月2日下午3:29:46
 	 * @version 1.0
 	 * @param obj 需要设置值的对象
@@ -249,10 +241,6 @@ public class ObjectUtils {
 		return obj;
 	}
 	
-	
-	
-	
-	
 	/**
 	 * 验证对象属性是否为空<br/>
 	 * {@link CharSequence}类型使用{@link StringUtils#isEmpty(CharSequence)}进行验证<br/>
@@ -262,7 +250,6 @@ public class ObjectUtils {
 	 * &nbsp;2、通过反射获取。<br/>
 	 * &nbsp;3、获取父类，通过父类获取。<br/>
 	 * 如果没有该属性将抛出{@link NoSuchFieldException}
-	 * @author 彭飞
 	 * @date 2019年7月25日上午10:47:18
 	 * @return 如果实行不为空则返回true。否则返回false。{@link CharSequence}类型默认使用{@link StringUtils#isEmpty(CharSequence)}进行验证
 	 * @throws NoSuchFieldException 如果没有这个字段。
@@ -278,8 +265,5 @@ public class ObjectUtils {
 			return false;
 		}
 	}
-	
-	
-	
 	
 }
