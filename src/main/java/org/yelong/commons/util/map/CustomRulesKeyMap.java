@@ -5,11 +5,9 @@ package org.yelong.commons.util.map;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -22,24 +20,12 @@ import org.apache.commons.collections4.CollectionUtils;
  * @author PengFei
  * @since 1.0.0
  */
-public class CustomRulesKeyMap <K,V> implements Map<K, V>{
+public class CustomRulesKeyMap <K,V> extends MapWrapper<K, V>{
 
-	private final Map<K,V> map;
-	
 	private final List<KeyRule<K>> keyRules = new ArrayList<KeyRule<K>>();
 	
 	public CustomRulesKeyMap(final Map<K, V> map) {
-		this.map = map;
-	}
-
-	@Override
-	public int size() {
-		return map.size();
-	}
-
-	@Override
-	public boolean isEmpty() {
-		return map.isEmpty();
+		super(map);
 	}
 
 	@Override
@@ -47,57 +33,17 @@ public class CustomRulesKeyMap <K,V> implements Map<K, V>{
 		return null != get(key);
 	}
 
-	@Override
-	public boolean containsValue(Object value) {
-		return map.containsValue(value);
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public V get(Object key) {
 		List<K> keys = getCustomRuleKeys((K)key);
 		for (K k : keys) {
-			V v = map.get(k);
+			V v = getMap().get(k);
 			if( null != v ) {
 				return v;
 			}
 		}
 		return null;
-	}
-
-	@Override
-	public V put(K key, V value) {
-		return map.put(key, value);
-	}
-
-	@Override
-	public V remove(Object key) {
-		return map.remove(key);
-	}
-
-	@Override
-	public void putAll(Map<? extends K, ? extends V> m) {
-		map.putAll(m);
-	}
-
-	@Override
-	public void clear() {
-		map.clear();
-	}
-
-	@Override
-	public Set<K> keySet() {
-		return map.keySet();
-	}
-
-	@Override
-	public Collection<V> values() {
-		return map.values();
-	}
-
-	@Override
-	public Set<Entry<K, V>> entrySet() {
-		return map.entrySet();
 	}
 	
 	/**
@@ -179,20 +125,8 @@ public class CustomRulesKeyMap <K,V> implements Map<K, V>{
 		return keyRules;
 	}
 	
-	/**
-	 * @return source map
-	 */
-	public Map<K, V> getSourceMap() {
-		return map;
-	}
-	
 	protected V sourceGet(K key) {
-		return map.get(key);
-	}
-	
-	@Override
-	public String toString() {
-		return map.toString();
+		return getMap().get(key);
 	}
 	
 	/**

@@ -4,6 +4,7 @@
 package org.yelong.commons.annotation;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 
 /**
  * @author PengFei
@@ -37,5 +38,21 @@ public class AnnotationUtils {
 			superClass = superClass.getSuperclass();
 		}
 	}
+	
+	/**
+	 * 获取字段上面的注解
+	 * 如果字段上面不存在该注解类型则返回 <code>null</code>
+	 * @param <A>
+	 * @param field 字段
+	 * @param annotation 注解类型
+	 * @return 字段存在annotation类型的注解则返回 annotation ，否则返回 <code>null</code>
+	 */
+	public static <A extends Annotation> A getAnnotation(Field field , Class<A> annotation) {
+		if(field.isAnnotationPresent(annotation)) {
+			return field.getAnnotation(annotation);
+		}
+		return null;
+	}
+	
 	
 }

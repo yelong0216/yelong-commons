@@ -12,3 +12,19 @@
 2020-04-29 v->1.0.3
 	1、新增org.yelong.commons.util.Dates工具类
 	2、新增org.yelong.commons.util.stream.StreamUtils工具类
+	
+2020-05-20->1.1.0
+	---原有类新增/删减功能---
+	1、org.yelong.commons.annotation.AnnotationUtils新增工具方法
+	
+	---新增类---
+	1、org.yelong.commons.lang.BaseDataTypeUtils。基础数据类型工具类
+	2、org.yelong.commons.lang.ApplicationProcessUtils。应用进程工具类
+	3、org.yelong.commons.util.BothwayMap 双向映射
+	4、org.yelong.commons.util.map.CaseInsensitiveMapUtils 忽略大小写的Map工具类
+	5、org.yelong.commons.util.ResourcesUtils 资源工具类
+	
+	---新增包---
+	1、org.yelong.commons.lang.process 程序管理（进程）
+	2、org.yelong.commons.lang.runtime 命令管理（windows、linux的命令执行）
+	3、org.yelong.commons.net 网络（获取IP、MAC地址等）
