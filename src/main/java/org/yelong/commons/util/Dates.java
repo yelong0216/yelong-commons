@@ -9,11 +9,16 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
 /**
+ * 日期、时间工具类
+ * 
  * @author PengFei
  * @since 1.0.3
+ * @see DateUtils
+ * @see DateFormatUtils
  */
 public final class Dates {
 
@@ -48,6 +53,7 @@ public final class Dates {
 	
 	/**
 	 * 获取 date 日期之后 dayNum 天的所有日期 不包含date  包含最后一天
+	 * 
 	 * @param date 开头的日期
 	 * @param dayNum 天数
 	 * @return 从date开始到dayNum天内的所有日期 包含最后一天
@@ -62,6 +68,7 @@ public final class Dates {
 	
 	/**
 	 * 获取 date 日期之前 dayNum 天的所有日期 不包含date 包含最后一天
+	 * 
 	 * @param date 开头的日期
 	 * @param dayNum 天数
 	 * @return 从date开始（包含date）到-dayNum天内的所有日期包含最后一天
@@ -96,6 +103,7 @@ public final class Dates {
 	
 	/**
 	 * 获取指定年的一年内所有的‘天’日期
+	 * 
 	 * @param year 年份
 	 * @return year年一年内所有的‘天’日期
 	 */
@@ -110,6 +118,7 @@ public final class Dates {
 	
 	/**
 	 * 获取指定年和月内所有的‘天’日期
+	 * 
 	 * @param year 年份
 	 * @return year年month月内所有的‘天’日期
 	 */
@@ -125,6 +134,7 @@ public final class Dates {
 	/**
 	 * 推算两个日期之间相差的天数
 	 * 相差的天数，两个参数不限制前大，后小，后大，前小的。默认均会转换为正数
+	 * 
 	 * @param d1 第一个日期
 	 * @param d2 第二个日期
 	 * @return 两个日期相差的天数
@@ -137,6 +147,7 @@ public final class Dates {
 	
 	/**
 	 * 获取指定年的第一天的日期
+	 * 
 	 * @param year 年份
 	 * @return year年的第一天日期
 	 */
@@ -150,6 +161,7 @@ public final class Dates {
 	
 	/**
 	 * 获取指定年的最后一天的日期
+	 * 
 	 * @param year 年份
 	 * @return year年的最后一天日期
 	 */
@@ -164,6 +176,7 @@ public final class Dates {
 	
 	/**
 	 * 获取指定年，月的第一天的日期
+	 * 
 	 * @param year 年份
 	 * @param month 月份
 	 * @return year年month月的第一天日期
@@ -179,6 +192,7 @@ public final class Dates {
 	
 	/**
 	 * 获取指定年，月的最后一天的日期
+	 * 
 	 * @param year 年份
 	 * @param month 月份
 	 * @return year年month月的最后一天日期
@@ -197,6 +211,7 @@ public final class Dates {
 	
 	/**
 	 * 获取日期的年份
+	 * 
 	 * @param date 日期
 	 * @return 年份
 	 */
@@ -219,6 +234,7 @@ public final class Dates {
 	 * 		9：十月
 	 * 		10：十一月
 	 * 		11：十二月
+	 * 
 	 * @param date 日期
 	 * @return 月份
 	 */
@@ -228,6 +244,7 @@ public final class Dates {
 	
 	/**
 	 * 获取指定的日期为其年内的第几天
+	 * 
 	 * @param date 日期
 	 * @return 指定的日期为其年内的第几天
 	 */
@@ -237,6 +254,7 @@ public final class Dates {
 	
 	/**
 	 * 获取指定的日期为其月内的第几天
+	 * 
 	 * @param date 日期
 	 * @return 指定的日期为其月内的第几天
 	 */
@@ -254,6 +272,7 @@ public final class Dates {
 	 * 		5：星期四
 	 * 		6：星期五
 	 * 		7：星期六
+	 * 
 	 * @param date 日期
 	 * @return 指定的日期为其星期内的第几天
 	 */
@@ -264,7 +283,6 @@ public final class Dates {
 	//================================ 获取当前日期，以及当前日期的年、月、日等 ================================
 	
 	/**
-	 * 当前日期的年份
 	 * @return 当前日期的年份
 	 */
 	public static int nowYear() {
@@ -273,6 +291,7 @@ public final class Dates {
 	
 	/**
 	 * 当前日期的月份
+	 * 
 	 * @return 当前日期的月份
 	 */
 	public static int nowMonth() {
@@ -280,7 +299,6 @@ public final class Dates {
 	}
 	
 	/**
-	 * 当天为该年的第几天
 	 * @return 当天为该年的第几天
 	 */
 	public static int nowDayOfYear() {
@@ -288,7 +306,6 @@ public final class Dates {
 	}
 	
 	/**
-	 * 当天为该月的第几天
 	 * @return 当天为该月的第几天
 	 */
 	public static int nowDayOfMonth() {
@@ -296,7 +313,6 @@ public final class Dates {
 	}
 	
 	/**
-	 * 当天为该星期的第几天
 	 * @return 当天为该星期的第几天
 	 */
 	public static int nowDayOfWeek() {
@@ -304,15 +320,13 @@ public final class Dates {
 	}
 	
 	/**
-	 * 当前日期的日历
-	 * @return
+	 * @return 当前日期的日历
 	 */
 	public static Calendar nowCalendar() {
 		return getCalendar(nowDate());
 	}
 	
 	/**
-	 * 当前的日期
 	 * @return 当前的日期
 	 */
 	public static Date nowDate() {
@@ -327,6 +341,7 @@ public final class Dates {
 	 * {@link #YYYY_MM_DD_SLASH}
 	 * {@link #YYYY_MM_DD_HH_MM_SS}
 	 * 的格式进行解析
+	 * 
 	 * @param str 日期字符串
 	 * @return 解析后的日期
 	 * @throws ParseException 
@@ -339,6 +354,7 @@ public final class Dates {
 	
 	/**
 	 * 获取日期的日历
+	 * 
 	 * @param date 日期 
 	 * @return 日历
 	 */
@@ -350,6 +366,7 @@ public final class Dates {
 	
 	/**
 	 * 获取日期
+	 * 
 	 * @param year 年份
 	 * @param month 月份（月份按照程序来算）
 	 * @param day 日 日子按照月份来算（该月的第几天）

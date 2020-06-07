@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
+ * 属性文件工具类
+ * 
  * @author PengFei
  */
 public final class PropertiesUtils {
@@ -16,6 +18,7 @@ public final class PropertiesUtils {
 
 	/**
 	 * 加载properties
+	 * 
 	 * @param properties 资源路径
 	 * @return {@link Properties}
 	 */
@@ -25,6 +28,7 @@ public final class PropertiesUtils {
 
 	/**
 	 * 对props加载properties资源
+	 * 
 	 * @param props {@link Properties}
 	 * @param properties 资源路径
 	 * @return {@link Properties}
@@ -43,6 +47,5 @@ public final class PropertiesUtils {
 		}
 		return props;
 	}
-
 
 }

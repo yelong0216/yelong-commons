@@ -26,6 +26,7 @@ public class BothwayMap <L,R> {
 	/**
 	 * 添加一个双向映射关系。
 	 * 保证左右两方的值均是唯一的
+	 * 
 	 * @param left 左值
 	 * @param right 右值
 	 */
@@ -46,6 +47,7 @@ public class BothwayMap <L,R> {
 	
 	/**
 	 * 获取左边对应的右边值
+	 * 
 	 * @param left 左边值
 	 * @return 返回这个左边对应的右边的值。如果不存这个左边值则返回null。
 	 */
@@ -56,6 +58,7 @@ public class BothwayMap <L,R> {
 	
 	/**
 	 * 获取右边对应的左边值
+	 * 
 	 * @param right 右边值
 	 * @return 返回这个右边对应的左边的值。如果不存这个右边值则返回null。
 	 */
@@ -66,6 +69,7 @@ public class BothwayMap <L,R> {
 	
 	/**
 	 * 获取右边的所有值
+	 * 
 	 * @return 右边所有值
 	 */
 	public synchronized List<R> getRights(){
@@ -74,6 +78,7 @@ public class BothwayMap <L,R> {
 	
 	/**
 	 * 获取左边的所有值
+	 * 
 	 * @return 左边所有值
 	 */
 	public synchronized List<L> getLefts(){

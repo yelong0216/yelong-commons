@@ -48,6 +48,7 @@ public class CustomRulesKeyMap <K,V> extends MapWrapper<K, V>{
 	
 	/**
 	 * 获取自定义规则后的key 。 且集合的第一个永远是源key
+	 * 
 	 * @param key
 	 * @return 获取所有自定义规则的key
 	 */
@@ -57,7 +58,8 @@ public class CustomRulesKeyMap <K,V> extends MapWrapper<K, V>{
 	
 	/**
 	 * 获取自定义规则后的key 。 且数组的第一个永远是源key
-	 * @param key
+	 * 
+	 * @param key key
 	 * @param sourceKey 是否包含源key。包含源key时，源key永远是集合中的第一个元素
 	 * @return 获取所有自定义规则的key
 	 */
@@ -87,6 +89,7 @@ public class CustomRulesKeyMap <K,V> extends MapWrapper<K, V>{
 	
 	/**
 	 * 更换key。对符合自定义规则的key全部删除，且新增key其值为符合规则的第一个值。如果符合规则的值，则值为null
+	 * 
 	 * @param key 需要更换key的值
 	 * @return 更换后key对应的value
 	 */
@@ -110,6 +113,7 @@ public class CustomRulesKeyMap <K,V> extends MapWrapper<K, V>{
 	
 	/**
 	 * 添加 key 规则
+	 * 
 	 * @param keyRule key 规则
 	 * @return this
 	 */
@@ -131,6 +135,7 @@ public class CustomRulesKeyMap <K,V> extends MapWrapper<K, V>{
 	
 	/**
 	 * map key rule
+	 * 
 	 * @author PengFei
 	 */
 	@FunctionalInterface
@@ -138,6 +143,7 @@ public class CustomRulesKeyMap <K,V> extends MapWrapper<K, V>{
 		
 		/**
 		 * 定制key
+		 * 
 		 * @param key 源key
 		 * @return 定制规则后的key。
 		 */

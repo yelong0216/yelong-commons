@@ -7,22 +7,23 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 字符串工具类
+ * {@link String}工具类拓展。
  * 
  * @author PengFei
- * @deprecated 冲突的命名。{@link org.apache.commons.lang3.StringUtils}
- * @see StringUtilsE
+ * @see org.apache.commons.lang3.StringUtils
+ * @since 1.2.0
  */
-@Deprecated
-public class StringUtils {
+public final class StringUtilsE {
 
+	//不允许实例化
+	private StringUtilsE() {}
+	
 	/**
 	 * 下划线转驼峰
 	 * peng_fei ==> pengFei
 	 * 
-	 * @param str
+	 * @param str 需要转换的字符串
 	 * @return 下划线转换为驼峰后的字符串
-	 * @see StringUtilsE#underscoreToCamelCase(String)
 	 */
 	public static String underscoreToCamelCase(String str) {
 		//利用正则删除下划线，把下划线后一位改成大写
@@ -46,9 +47,8 @@ public class StringUtils {
 	 * 驼峰转下划线
 	 * pengFei ==> peng_fei
 	 * 
-	 * @param str 
+	 * @param str 需要转换的字符串
 	 * @return 驼峰转换为下划线后的字符串
-	 * @see StringUtilsE#camelCaseToUnderscore(String)
 	 */
 	public static String camelCaseToUnderscore(String str) {
 		Pattern pattern = Pattern.compile("[A-Z]");
@@ -66,5 +66,5 @@ public class StringUtils {
 		}	
 		return camelCaseToUnderscore(sb.toString());
 	}
-
+	
 }

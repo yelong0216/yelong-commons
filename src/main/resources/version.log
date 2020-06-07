@@ -28,3 +28,6 @@
 	1、org.yelong.commons.lang.process 程序管理（进程）
 	2、org.yelong.commons.lang.runtime 命令管理（windows、linux的命令执行）
 	3、org.yelong.commons.net 网络（获取IP、MAC地址等）
+	
+2020-06-07->1.2.0
+	1、对命名冲突的类（BeanUtils、StringUtils、FileUtils）进行弃用，并提供新命名的类进行拓展使用

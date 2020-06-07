@@ -13,6 +13,7 @@ public final class Strings {
 
 	/**
 	 * 验证字符串是否是空字符
+	 * 
 	 * @param c 需要验证的字符串
 	 * @return c
 	 */
@@ -25,6 +26,7 @@ public final class Strings {
 
 	/**
 	 * 验证字符串是否是空字符
+	 * 
 	 * @param c 需要验证的字符串
 	 * @param message 异常消息
 	 * @return c
@@ -38,6 +40,7 @@ public final class Strings {
 
 	/**
 	 * 验证字符串是否是空白字符
+	 * 
 	 * @param c 需要验证的字符串
 	 * @return c
 	 */
@@ -50,6 +53,7 @@ public final class Strings {
 
 	/**
 	 * 验证字符串是否是空白字符
+	 * 
 	 * @param c 需要验证的字符串
 	 * @param message 异常消息
 	 * @return c 
@@ -86,6 +90,5 @@ public final class Strings {
 		public CharSequenceNotAllowBlankException(String message) {super(message);}
 		
 	}
-	
 	
 }

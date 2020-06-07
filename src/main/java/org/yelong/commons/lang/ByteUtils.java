@@ -12,6 +12,7 @@ public class ByteUtils {
 
 	/**
 	 * 字节数组转换为 Base64
+	 * 
 	 * @param byteArray 字节数组
 	 * @return base64 编码字符串
 	 */

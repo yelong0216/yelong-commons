@@ -7,9 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author pengfei<yl1430834495@163.com>
- * @date 2019年11月14日下午3:36:40
- * @version 1.3
+ * 默认的命令执行器
  */
 public class DefaultCommandExecutor  implements CommandExecutor{
 

@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 /**
  * 地址工具类
+ * 
  * @author PengFei
  * @since 1.0.4
  */
@@ -22,6 +23,7 @@ public final class InetAddressUtils {
 	
 	/**
 	 * 获取本地主机硬件地址
+	 * 
 	 * @return 本地主机硬件地址 （MAC）
 	 * @throws SocketException
 	 * @throws UnknownHostException
@@ -34,6 +36,7 @@ public final class InetAddressUtils {
 	
 	/**
 	 * 获取本地主机硬件地址，并转换为16进制
+	 * 
 	 * @return 16进制的本地主机硬件地址
 	 * @throws SocketException
 	 * @throws UnknownHostException
@@ -54,6 +57,7 @@ public final class InetAddressUtils {
 	
 	/**
 	 * 获取mac地址
+	 * 
 	 * @return mac 地址
 	 * @throws SocketException
 	 * @throws UnknownHostException
@@ -66,6 +70,7 @@ public final class InetAddressUtils {
 	
 	/**
 	 * 获取当前系统的地址。这一般是该系统的ip4地址
+	 * 
 	 * @return 当前系统地址。一般为ip4地址
 	 * @throws UnknownHostException
 	 */

@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 基础数据类型工具类
+ * 
  * @author PengFei
  * @since 1.0.4
  */
@@ -30,6 +31,7 @@ public final class BaseDataTypeUtils {
 	
 	/**
 	 * 获取基础数据类型对应的包装数据类型
+	 * 
 	 * @param baseDataType 基础数据类型
 	 * @return 包装数据类型。如果不存在这个基础数据类型则返回null
 	 */
@@ -40,6 +42,7 @@ public final class BaseDataTypeUtils {
 	
 	/**
 	 * 获取包装数据类型对应的基础数据类型
+	 * 
 	 * @param wrapperType 包装数据类型
 	 * @return 基础数据类型。如果不存在这个包装数据类型则返回null
 	 */
@@ -50,6 +53,7 @@ public final class BaseDataTypeUtils {
 	
 	/**
 	 * 是否是基础数据类型
+	 * 
 	 * @param type 数据类型字符串
 	 * @return <tt>true</tt> 是基础数据类型
 	 */
@@ -59,6 +63,7 @@ public final class BaseDataTypeUtils {
 	
 	/**
 	 * 是否是包装数据类型
+	 * 
 	 * @param type 类型
 	 * @return <tt>true</tt> 是包装数据类型
 	 */

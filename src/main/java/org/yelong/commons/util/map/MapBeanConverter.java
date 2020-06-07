@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 import org.apache.commons.lang3.reflect.FieldUtils;
-import org.yelong.commons.beans.BeanUtils;
+import org.yelong.commons.beans.BeanUtilsE;
 
 /**
  * map bean 之间的互相转换
@@ -24,7 +24,8 @@ public class MapBeanConverter {
 	 * 将Bean中所有的字段在map中进行获取并赋值
 	 * 注意：
 	 * 		1、bean在设置值时使用set方法设置。不使用反射
-	 * @param <T>
+	 * 
+	 * @param <T> bean type
 	 * @param map map
 	 * @param beanClass 被转换后的bean的类
 	 * @return 赋值后的bean
@@ -39,7 +40,8 @@ public class MapBeanConverter {
 	 * 将Bean中所有的字段在map中进行获取并赋值 
 	 * 注意：
 	 * 		1、bean在设置值时使用set方法设置。不使用反射
-	 * @param <T>
+	 * 
+	 * @param <T> bean type
 	 * @param map map 
 	 * @param beanFactory bean factory 被映射的bean
 	 * @return 赋值后的bean
@@ -52,7 +54,8 @@ public class MapBeanConverter {
 	 * 将Bean中所有的字段在map中进行获取并赋值 
 	 * 注意：
 	 * 		1、bean在设置值时使用set方法设置。不使用反射
-	 * @param <T>
+	 * 
+	 * @param <T> bean type
 	 * @param map map
 	 * @param bean bean
 	 * @return 赋值后的bean
@@ -64,7 +67,7 @@ public class MapBeanConverter {
 			Object value = map.get(propertyName);
 			if( null != value ) {
 				try {
-					BeanUtils.setProperty(bean, propertyName, value);
+					BeanUtilsE.setProperty(bean, propertyName, value);
 				} catch (NoSuchMethodException e) {
 					//对于标准方法设置不了的将不进行设置值
 				}
@@ -77,6 +80,7 @@ public class MapBeanConverter {
 	 * 将bean中所有的字段与值设置到map中
 	 * 注意：
 	 * 		1、取值通过标准的get/is方法取值。不使用反射
+	 * 
 	 * @param bean 需要映射为map的bean
 	 * @return 映射后的map
 	 */
@@ -88,7 +92,8 @@ public class MapBeanConverter {
 	 * 将bean中所有的字段与值设置到map中
 	 * 注意：
 	 * 		1、取值通过标准的get/is方法取值。不使用反射
-	 * @param <M>
+	 * 
+	 * @param <M> map type
 	 * @param bean 需要映射为map的bean
 	 * @param mapFactory map factory
 	 * @return 映射后的map
@@ -100,7 +105,7 @@ public class MapBeanConverter {
 			String propertyName = field.getName();
 			Object value = null;
 			try {
-				value = BeanUtils.getProperty(bean, propertyName);
+				value = BeanUtilsE.getProperty(bean, propertyName);
 			} catch (NoSuchMethodException e) {
 				//对于标准方法取不到的默认为null
 			} finally {

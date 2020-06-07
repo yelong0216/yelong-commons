@@ -5,12 +5,14 @@ package org.yelong.commons.util;
 
 /**
  * 16进制与字符串之间的转换
+ * 
  * @author PengFei
  */
 public class HexStrConvert {
 	
 	/**
 	 * Convert byte[] to hex string.这里我们可以将byte转换成int，然后利用Integer.toHexString(int)来转换成16进制字符串。 
+	 * 
 	 * @param src byte[] data 
 	 * @return hex string 
 	 */ 
@@ -32,6 +34,7 @@ public class HexStrConvert {
 	
 	/**
 	 * Convert hex string to byte[]
+	 * 
 	 * @param hexString the hex string
 	 * @return byte[]
 	 */ 
@@ -52,6 +55,7 @@ public class HexStrConvert {
 	
 	/**
 	 * Convert char to byte
+	 * 
 	 * @param c char
 	 * @return byte
 	 */ 

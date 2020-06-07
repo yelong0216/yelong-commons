@@ -9,6 +9,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 /**
+ * 资源工具类
+ * 
  * @author PengFei
  * @since 1.0.4
  */
@@ -18,9 +20,10 @@ public final class ResourcesUtils {
 
 	/**
 	 * 获取资源的流
-	 * @param properties
-	 * @return
-	 * @throws FileNotFoundException
+	 * 
+	 * @param resource 资源文件路径
+	 * @return 文件流
+	 * @throws FileNotFoundException 文件不存在
 	 */
 	public static InputStream getResourceAsStream(String resource) throws FileNotFoundException {
 		Class<?> c = PropertiesUtils.class;

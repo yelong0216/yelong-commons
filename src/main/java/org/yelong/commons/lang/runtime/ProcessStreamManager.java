@@ -9,9 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * @author pengfei<yl1430834495@163.com>
- * @date 2019年11月18日上午11:05:58
- * @version 1.3
+ * 命令执行后的流管理
  */
 public class ProcessStreamManager{
 
@@ -25,8 +23,6 @@ public class ProcessStreamManager{
 
 	/**
 	 * 启动ErrorStream线程
-	 * @date 2019年11月18日上午11:27:42
-	 * @version 1.3
 	 */
 	public void startErrorStreamThread() {
 		startErrorStreamThread(null);
@@ -34,8 +30,6 @@ public class ProcessStreamManager{
 
 	/**
 	 * 启动ErrorStream线程。通过listener监听错误流信息
-	 * @date 2019年11月18日上午11:29:02
-	 * @version 1.3
 	 * @param listener 流监听器
 	 */
 	public void startErrorStreamThread(ProcessStreamListener listener) {
@@ -45,8 +39,6 @@ public class ProcessStreamManager{
 
 	/**
 	 * 启动InputStream线程
-	 * @date 2019年11月18日上午11:29:42
-	 * @version 1.3
 	 */
 	public void startInputStreamThread() {
 		startInputStreamThread(null);
@@ -54,9 +46,7 @@ public class ProcessStreamManager{
 
 	/**
 	 * 启动InputStream线程。通过listener监听错误流信息
-	 * @date 2019年11月18日上午11:29:58
-	 * @version 1.3
-	 * @param listtener 流监听器
+	 * @param listener 流监听器
 	 */
 	public void startInputStreamThread(ProcessStreamListener listener) {
 		InputStreamThread inputStreamThread = new InputStreamThread(process.getInputStream(), listener);
@@ -73,9 +63,6 @@ public class ProcessStreamManager{
 	
 	/**
 	 * 流线程
-	 * @author pengfei<yl1430834495@163.com>
-	 * @date 2019年11月18日上午11:37:54
-	 * @version 1.3
 	 */
 	private class InputStreamThread extends Thread {
 

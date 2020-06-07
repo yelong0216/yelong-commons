@@ -7,9 +7,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /**
- * @author pengfei<yl1430834495@163.com>
- * @date 2019年11月15日上午9:38:40
- * @version 1.3
+ * 命令执行结果
  */
 public class CommandExecuteResult {
 

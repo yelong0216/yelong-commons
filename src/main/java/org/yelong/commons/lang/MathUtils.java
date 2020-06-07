@@ -18,6 +18,7 @@ public class MathUtils {
 
 	/**
 	 * 除法运算，保留两位小数
+	 * 
 	 * @param a 除数
 	 * @param b 被除数
 	 * @return 运算后结果
@@ -29,6 +30,7 @@ public class MathUtils {
 
 	/**
 	 * 除法运算，保留两位小数
+	 * 
 	 * @param a 除数
 	 * @param b 被除数
 	 * @return 运算后结果
@@ -40,6 +42,7 @@ public class MathUtils {
 
 	/**
 	 * 计算str的表达式
+	 * 
 	 * @param str 数学计算表达式
 	 * @return 计算后的值
 	 */
