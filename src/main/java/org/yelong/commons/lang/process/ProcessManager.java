@@ -13,13 +13,14 @@ package org.yelong.commons.lang.process;
  * @since 1.0.4
  */
 public interface ProcessManager {
-	
+
 	/**
 	 * 杀死进程
+	 * 
 	 * @param pid 进程pid
 	 * @return <tt>true</tt> 成功杀死
 	 * @throws Exception
 	 */
 	boolean killProcess(int pid) throws ProcessManagerException;
-	
+
 }

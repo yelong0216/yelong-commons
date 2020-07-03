@@ -18,9 +18,10 @@ import java.util.stream.Collectors;
  * @since 1.0.4
  */
 public final class InetAddressUtils {
-	
-	private InetAddressUtils() {}
-	
+
+	private InetAddressUtils() {
+	}
+
 	/**
 	 * 获取本地主机硬件地址
 	 * 
@@ -28,12 +29,12 @@ public final class InetAddressUtils {
 	 * @throws SocketException
 	 * @throws UnknownHostException
 	 */
-	public static byte [] getLocalHostHardwareAddress() throws SocketException, UnknownHostException {
+	public static byte[] getLocalHostHardwareAddress() throws SocketException, UnknownHostException {
 		NetworkInterface networkInterface = NetworkInterface.getByInetAddress(InetAddress.getLocalHost());
 		byte[] hardwareAddress = networkInterface.getHardwareAddress();
 		return hardwareAddress;
 	}
-	
+
 	/**
 	 * 获取本地主机硬件地址，并转换为16进制
 	 * 
@@ -41,20 +42,20 @@ public final class InetAddressUtils {
 	 * @throws SocketException
 	 * @throws UnknownHostException
 	 */
-	public static String [] getLocalHostHardwareAddressToHex() throws SocketException, UnknownHostException {
+	public static String[] getLocalHostHardwareAddressToHex() throws SocketException, UnknownHostException {
 		byte[] localHostHardwareAddress = getLocalHostHardwareAddress();
-		String [] localHostHardwareAddressHex = new String[localHostHardwareAddress.length];
+		String[] localHostHardwareAddressHex = new String[localHostHardwareAddress.length];
 		for (int i = 0; i < localHostHardwareAddress.length; i++) {
-			String str = Integer.toHexString(localHostHardwareAddress[i]&0xff);
-			if(str.length() == 1) {
-				//如果遇到单字符，前置0占位补满两格
+			String str = Integer.toHexString(localHostHardwareAddress[i] & 0xff);
+			if (str.length() == 1) {
+				// 如果遇到单字符，前置0占位补满两格
 				str = "0" + str;
 			}
 			localHostHardwareAddressHex[i] = str;
 		}
 		return localHostHardwareAddressHex;
 	}
-	
+
 	/**
 	 * 获取mac地址
 	 * 
@@ -67,7 +68,7 @@ public final class InetAddressUtils {
 		List<String> asList = Arrays.asList(localHostHardwareAddressToHex);
 		return asList.stream().map(String::toUpperCase).collect(Collectors.joining("-"));
 	}
-	
+
 	/**
 	 * 获取当前系统的地址。这一般是该系统的ip4地址
 	 * 
@@ -77,5 +78,5 @@ public final class InetAddressUtils {
 	public static String getLocalHostAddress() throws UnknownHostException {
 		return InetAddress.getLocalHost().getHostAddress();
 	}
-	
+
 }

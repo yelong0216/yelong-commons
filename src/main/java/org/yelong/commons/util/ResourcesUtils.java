@@ -15,8 +15,9 @@ import java.io.InputStream;
  * @since 1.0.4
  */
 public final class ResourcesUtils {
-	
-	private ResourcesUtils() {}
+
+	private ResourcesUtils() {
+	}
 
 	/**
 	 * 获取资源的流
@@ -28,19 +29,19 @@ public final class ResourcesUtils {
 	public static InputStream getResourceAsStream(String resource) throws FileNotFoundException {
 		Class<?> c = PropertiesUtils.class;
 		InputStream is = null;
-		if(resource.contains(":"))
+		if (resource.contains(":"))
 			is = new FileInputStream(new File(resource));
-		if(null == is)
+		if (null == is)
 			is = c.getResourceAsStream(resource);
-		if(null == is)
+		if (null == is)
 			is = ClassLoader.getSystemResourceAsStream(resource);
-		if(null == is)
+		if (null == is)
 			is = c.getClassLoader().getResourceAsStream(resource);
-		if(null == is)
-			is = c.getClassLoader().getResourceAsStream("resources/"+resource);
-		if(null == is)
+		if (null == is)
+			is = c.getClassLoader().getResourceAsStream("resources/" + resource);
+		if (null == is)
 			is = Thread.currentThread().getContextClassLoader().getResourceAsStream(resource);
 		return is;
 	}
-	
+
 }

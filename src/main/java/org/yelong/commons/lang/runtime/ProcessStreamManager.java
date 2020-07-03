@@ -11,12 +11,12 @@ import java.io.InputStreamReader;
 /**
  * 命令执行后的流管理
  */
-public class ProcessStreamManager{
+public class ProcessStreamManager {
 
 	private final Process process;
 
 	private String charsetName;
-	
+
 	public ProcessStreamManager(Process process) {
 		this.process = process;
 	}
@@ -30,6 +30,7 @@ public class ProcessStreamManager{
 
 	/**
 	 * 启动ErrorStream线程。通过listener监听错误流信息
+	 * 
 	 * @param listener 流监听器
 	 */
 	public void startErrorStreamThread(ProcessStreamListener listener) {
@@ -46,6 +47,7 @@ public class ProcessStreamManager{
 
 	/**
 	 * 启动InputStream线程。通过listener监听错误流信息
+	 * 
 	 * @param listener 流监听器
 	 */
 	public void startInputStreamThread(ProcessStreamListener listener) {
@@ -56,11 +58,11 @@ public class ProcessStreamManager{
 	public void setCharsetName(String charsetName) {
 		this.charsetName = charsetName;
 	}
-	
+
 	public String getCharsetName() {
 		return charsetName;
 	}
-	
+
 	/**
 	 * 流线程
 	 */
@@ -78,11 +80,11 @@ public class ProcessStreamManager{
 		@Override
 		public void run() {
 			try {
-				InputStreamReader inputStreamReader = new InputStreamReader(inputStream,charsetName);
+				InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charsetName);
 				BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 				String line = null;
-				while((line = bufferedReader.readLine()) !=null ) {
-					if( null != listener) {
+				while ((line = bufferedReader.readLine()) != null) {
+					if (null != listener) {
 						listener.listening(line);
 					}
 				}

@@ -17,34 +17,33 @@ import java.util.List;
  * @author PengFei
  * @since 1.0.4
  */
-public class BothwayMap <L,R> {
+public class BothwayMap<L, R> {
 
 	private final List<L> LEFT = new ArrayList<>();
-	
+
 	private final List<R> RIGHT = new ArrayList<>();
-	
+
 	/**
-	 * 添加一个双向映射关系。
-	 * 保证左右两方的值均是唯一的
+	 * 添加一个双向映射关系。 保证左右两方的值均是唯一的
 	 * 
-	 * @param left 左值
+	 * @param left  左值
 	 * @param right 右值
 	 */
-	public synchronized void add(L left , R right) {
+	public synchronized void add(L left, R right) {
 		int lIndex = LEFT.indexOf(left);
-		if( lIndex == -1 ) {
+		if (lIndex == -1) {
 			LEFT.remove(lIndex);
 			RIGHT.remove(lIndex);
 		}
 		int rIndex = RIGHT.indexOf(right);
-		if( lIndex == -1 ) {
+		if (lIndex == -1) {
 			LEFT.remove(rIndex);
 			RIGHT.remove(rIndex);
 		}
 		LEFT.add(left);
 		RIGHT.add(right);
 	}
-	
+
 	/**
 	 * 获取左边对应的右边值
 	 * 
@@ -55,7 +54,7 @@ public class BothwayMap <L,R> {
 		int index = LEFT.indexOf(left);
 		return index == -1 ? null : RIGHT.get(index);
 	}
-	
+
 	/**
 	 * 获取右边对应的左边值
 	 * 
@@ -66,23 +65,23 @@ public class BothwayMap <L,R> {
 		int index = RIGHT.indexOf(right);
 		return index == -1 ? null : LEFT.get(index);
 	}
-	
+
 	/**
 	 * 获取右边的所有值
 	 * 
 	 * @return 右边所有值
 	 */
-	public synchronized List<R> getRights(){
+	public synchronized List<R> getRights() {
 		return Collections.unmodifiableList(this.RIGHT);
 	}
-	
+
 	/**
 	 * 获取左边的所有值
 	 * 
 	 * @return 左边所有值
 	 */
-	public synchronized List<L> getLefts(){
+	public synchronized List<L> getLefts() {
 		return Collections.unmodifiableList(this.LEFT);
 	}
-	
+
 }

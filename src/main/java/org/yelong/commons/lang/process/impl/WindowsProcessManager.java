@@ -13,18 +13,18 @@ import org.yelong.commons.lang.runtime.CommandExecutor;
  * @author PengFei
  *
  */
-public class WindowsProcessManager implements ProcessManager{
-	
+public class WindowsProcessManager implements ProcessManager {
+
 	private final CommandExecutor commandExecutor;
-	
+
 	public WindowsProcessManager(final CommandExecutor commandExecutor) {
 		this.commandExecutor = commandExecutor;
 	}
-	
+
 	@Override
-	public boolean killProcess(int pid) throws ProcessManagerException{
+	public boolean killProcess(int pid) throws ProcessManagerException {
 		try {
-			CommandExecuteResult commandExecuteResult = commandExecutor.execute("taskkill /pid "+pid+" /f");
+			CommandExecuteResult commandExecuteResult = commandExecutor.execute("taskkill /pid " + pid + " /f");
 			return StringUtils.isBlank(commandExecuteResult.getErrorInfo());
 		} catch (Exception e) {
 			throw new ProcessManagerException(e);

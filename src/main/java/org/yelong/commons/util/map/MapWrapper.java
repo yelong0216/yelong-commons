@@ -13,10 +13,10 @@ import java.util.Set;
  * @author PengFei
  * @since 1.0.3
  */
-public class MapWrapper<K,V> implements Map<K, V>{
+public class MapWrapper<K, V> implements Map<K, V> {
 
-	private final Map<K,V> sourceMap;
-	
+	private final Map<K, V> sourceMap;
+
 	public MapWrapper(Map<K, V> sourceMap) {
 		this.sourceMap = sourceMap;
 	}
@@ -84,8 +84,8 @@ public class MapWrapper<K,V> implements Map<K, V>{
 	/**
 	 * @return 源 map
 	 */
-	public Map<K,V> getMap(){
+	public Map<K, V> getMap() {
 		return sourceMap;
 	}
-	
+
 }

@@ -16,22 +16,23 @@ import org.apache.commons.collections4.map.CaseInsensitiveMap;
  */
 public final class CaseInsensitiveMapUtils {
 
-	//不允许实例化
-	private CaseInsensitiveMapUtils() {}
+	// 不允许实例化
+	private CaseInsensitiveMapUtils() {
+	}
 
 	/**
 	 * 指定key的存储模式并创建大小写不敏感的 map
 	 * 
-	 * @param <K> key type
-	 * @param <V> value type
+	 * @param <K>          key type
+	 * @param <V>          value type
 	 * @param keyStoreMode key 存储模式。一般分为大写和小写
 	 * @return 大小写不敏感的 map
 	 * @see KeyStoreMode
 	 * @see CaseInsensitiveMap#CaseInsensitiveMap()
 	 */
-	public static <K,V> CaseInsensitiveMap<K,V> createCaseInsensitiveMap(final KeyStoreMode keyStoreMode) {
-		if( keyStoreMode == KeyStoreMode.UPPER ) {
-			return new CaseInsensitiveMapKeyUpper<K,V>();
+	public static <K, V> CaseInsensitiveMap<K, V> createCaseInsensitiveMap(final KeyStoreMode keyStoreMode) {
+		if (keyStoreMode == KeyStoreMode.UPPER) {
+			return new CaseInsensitiveMapKeyUpper<K, V>();
 		}
 		return new CaseInsensitiveMap<K, V>();
 	}
@@ -39,17 +40,18 @@ public final class CaseInsensitiveMapUtils {
 	/**
 	 * 指定key的存储模式并创建大小写不敏感的 map
 	 * 
-	 * @param <K> key type
-	 * @param <V> value type
+	 * @param <K>             key type
+	 * @param <V>             value type
 	 * @param initialCapacity the initial capacity
-	 * @param keyStoreMode key 存储模式。一般分为大写和小写
+	 * @param keyStoreMode    key 存储模式。一般分为大写和小写
 	 * @return 大小写不敏感的 map
 	 * @see KeyStoreMode
 	 * @see CaseInsensitiveMap#CaseInsensitiveMap(int)
 	 */
-	public static <K,V> CaseInsensitiveMap<K,V>  createCaseInsensitiveMap(final int initialCapacity,final KeyStoreMode keyStoreMode) {
-		if( keyStoreMode == KeyStoreMode.UPPER ) {
-			return new CaseInsensitiveMapKeyUpper<K,V>(initialCapacity);
+	public static <K, V> CaseInsensitiveMap<K, V> createCaseInsensitiveMap(final int initialCapacity,
+			final KeyStoreMode keyStoreMode) {
+		if (keyStoreMode == KeyStoreMode.UPPER) {
+			return new CaseInsensitiveMapKeyUpper<K, V>(initialCapacity);
 		}
 		return new CaseInsensitiveMap<K, V>(initialCapacity);
 	}
@@ -57,36 +59,38 @@ public final class CaseInsensitiveMapUtils {
 	/**
 	 * 指定key的存储模式并创建大小写不敏感的 map
 	 * 
-	 * @param <K> key type
-	 * @param <V> value type
-	 * @param initialCapacity  the initial capacity
-	 * @param loadFactor  the load factor
-	 * @param keyStoreMode key 存储模式。一般分为大写和小写
+	 * @param <K>             key type
+	 * @param <V>             value type
+	 * @param initialCapacity the initial capacity
+	 * @param loadFactor      the load factor
+	 * @param keyStoreMode    key 存储模式。一般分为大写和小写
 	 * @return 大小写不敏感的 map
 	 * @see KeyStoreMode
 	 * @see CaseInsensitiveMap#CaseInsensitiveMap(int, float)
 	 */
-	public static <K,V> CaseInsensitiveMap<K,V>  createCaseInsensitiveMap(final int initialCapacity, final float loadFactor,final KeyStoreMode keyStoreMode) {
-		if( keyStoreMode == KeyStoreMode.UPPER ) {
-			return new CaseInsensitiveMapKeyUpper<K,V>(initialCapacity,loadFactor);
+	public static <K, V> CaseInsensitiveMap<K, V> createCaseInsensitiveMap(final int initialCapacity,
+			final float loadFactor, final KeyStoreMode keyStoreMode) {
+		if (keyStoreMode == KeyStoreMode.UPPER) {
+			return new CaseInsensitiveMapKeyUpper<K, V>(initialCapacity, loadFactor);
 		}
-		return new CaseInsensitiveMap<K, V>(initialCapacity,loadFactor);
+		return new CaseInsensitiveMap<K, V>(initialCapacity, loadFactor);
 	}
 
 	/**
 	 * 指定key的存储模式并创建大小写不敏感的 map
 	 * 
-	 * @param <K> key type
-	 * @param <V> value type
-	 * @param map map  the map to copy
+	 * @param <K>          key type
+	 * @param <V>          value type
+	 * @param map          map the map to copy
 	 * @param keyStoreMode key 存储模式。一般分为大写和小写
 	 * @return 大小写不敏感的 map
 	 * @see KeyStoreMode
 	 * @see CaseInsensitiveMap#CaseInsensitiveMap(Map)
 	 */
-	public static <K,V> CaseInsensitiveMap<K,V>  createCaseInsensitiveMap(final Map<? extends K, ? extends V> map,final KeyStoreMode keyStoreMode) {
-		if( keyStoreMode == KeyStoreMode.UPPER ) {
-			return new CaseInsensitiveMapKeyUpper<K,V>(map);
+	public static <K, V> CaseInsensitiveMap<K, V> createCaseInsensitiveMap(final Map<? extends K, ? extends V> map,
+			final KeyStoreMode keyStoreMode) {
+		if (keyStoreMode == KeyStoreMode.UPPER) {
+			return new CaseInsensitiveMapKeyUpper<K, V>(map);
 		}
 		return new CaseInsensitiveMap<K, V>(map);
 	}
@@ -98,9 +102,9 @@ public final class CaseInsensitiveMapUtils {
 	 */
 	public static enum KeyStoreMode {
 
-		/**CaseInsensitiveMap key 存储大写*/
+		/** CaseInsensitiveMap key 存储大写 */
 		UPPER,
-		/**CaseInsensitiveMap key 存储小写*/
+		/** CaseInsensitiveMap key 存储小写 */
 		LOWER
 
 	}
@@ -112,11 +116,12 @@ public final class CaseInsensitiveMapUtils {
 	 * @param <K> this key type
 	 * @param <V> this value type
 	 */
-	public static class CaseInsensitiveMapKeyUpper<K,V> extends CaseInsensitiveMap<K,V>{
+	public static class CaseInsensitiveMapKeyUpper<K, V> extends CaseInsensitiveMap<K, V> {
 
 		private static final long serialVersionUID = 4240507943940805742L;
 
-		public CaseInsensitiveMapKeyUpper() {}
+		public CaseInsensitiveMapKeyUpper() {
+		}
 
 		public CaseInsensitiveMapKeyUpper(final int initialCapacity) {
 			super(initialCapacity);

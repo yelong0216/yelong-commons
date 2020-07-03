@@ -16,20 +16,23 @@ import java.util.function.Predicate;
  */
 public final class StreamUtils {
 
-	private StreamUtils() {}
-	
+	private StreamUtils() {
+	}
+
 	/**
+	 * <pre>
 	 * 根据key去重
 	 * 		list.stream().filter(StreamUtils.distinctByKey(item -> item.getName())); 
-	 * 		list.stream().filter(StreamUtils.distinctByKey(item::getName)); 
+	 * 		list.stream().filter(StreamUtils.distinctByKey(item::getName));
+	 * </pre>
 	 * 
-	 * @param <T> key type
-	 * @param keyExtractor key 提取 
+	 * @param <T>          key type
+	 * @param keyExtractor key 提取
 	 * @return 去重key的Predicate
 	 */
 	public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
-        Map<Object,Boolean> seen = new ConcurrentHashMap<>();
-        return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
+		Map<Object, Boolean> seen = new ConcurrentHashMap<>();
+		return t -> seen.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;
 	}
-	
+
 }

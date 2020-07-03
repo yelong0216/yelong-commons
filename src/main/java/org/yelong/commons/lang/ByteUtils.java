@@ -16,9 +16,9 @@ public class ByteUtils {
 	 * @param byteArray 字节数组
 	 * @return base64 编码字符串
 	 */
-	public static String toBase64(byte [] byteArray) {
+	public static String toBase64(byte[] byteArray) {
 		Base64 encoder = new Base64();
 		return byteArray != null ? encoder.encodeToString(byteArray) : "";
 	}
-	
+
 }

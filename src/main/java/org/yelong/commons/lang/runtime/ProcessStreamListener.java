@@ -13,5 +13,5 @@ public interface ProcessStreamListener {
 	 * @param line 进程流每次读取的行信息
 	 */
 	void listening(String line);
-	
+
 }
