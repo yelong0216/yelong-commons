@@ -25,6 +25,7 @@
 		<url>https://github.com/yelong0216/yelong-commons</url>
 	</scm>
 	<properties>
+		<maven.test.skip>true</maven.test.skip> 
 	 	<maven.javadoc.skip>true</maven.javadoc.skip>
 		<commons-lang3.version>3.8.1</commons-lang3.version>
 		<commons-codec.version>1.11</commons-codec.version>
