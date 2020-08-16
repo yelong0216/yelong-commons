@@ -8,14 +8,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * 双向映射
+ * 双向映射，可以通过左边获取右边，右边也可以获取左边，且双向的均保持唯一
  * 
- * 可以通过左边获取右边
- * 
- * 右边也可以获取左边，且双向的均保持唯一
- * 
- * @author PengFei
- * @since 1.0.4
+ * @since 1.1
  */
 public class BothwayMap<L, R> {
 
@@ -31,12 +26,12 @@ public class BothwayMap<L, R> {
 	 */
 	public synchronized void add(L left, R right) {
 		int lIndex = LEFT.indexOf(left);
-		if (lIndex == -1) {
+		if (lIndex != -1) {
 			LEFT.remove(lIndex);
 			RIGHT.remove(lIndex);
 		}
 		int rIndex = RIGHT.indexOf(right);
-		if (lIndex == -1) {
+		if (rIndex != -1) {
 			LEFT.remove(rIndex);
 			RIGHT.remove(rIndex);
 		}

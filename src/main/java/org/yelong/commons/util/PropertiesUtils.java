@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * 属性文件工具类
  * 
- * @author PengFei
+ * @since 1.1
  */
 public final class PropertiesUtils {
 

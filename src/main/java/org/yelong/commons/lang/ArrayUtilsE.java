@@ -6,8 +6,10 @@ package org.yelong.commons.lang;
 import org.apache.commons.lang3.ArrayUtils;
 
 /**
- * @author PengFei
- * @since 1.3.0
+ * 数组工具类
+ * 
+ * @since 1.3
+ * @see ArrayUtils
  */
 public final class ArrayUtilsE {
 
@@ -28,6 +30,9 @@ public final class ArrayUtilsE {
 		return array;
 	}
 
+	/**
+	 * 数组为空异常
+	 */
 	public static class ArrayEmptyException extends RuntimeException {
 
 		private static final long serialVersionUID = -2034225815001398060L;

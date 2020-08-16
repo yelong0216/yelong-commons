@@ -10,10 +10,9 @@ import java.util.function.Supplier;
 import org.apache.commons.collections4.MapUtils;
 
 /**
- * map映射工具拓展
+ * map工具拓展
  * 
- * @author PengFei
- * @since 1.3.0
+ * @since 1.3
  */
 public final class MapUtilsE {
 
@@ -48,13 +47,14 @@ public final class MapUtilsE {
 	}
 
 	/**
-	 * 创建map，并将key、value键值对放入map中
+	 * 创建HashMap，并将key、value键值对放入map中
 	 * 
 	 * @param <K>   key type
 	 * @param <V>   value type
 	 * @param key   key
 	 * @param value value
 	 * @return a map
+	 * @see HashMap
 	 */
 	public static <K, V> Map<K, V> asMap(K key, V value) {
 		return asMap(HashMap::new, key, value);

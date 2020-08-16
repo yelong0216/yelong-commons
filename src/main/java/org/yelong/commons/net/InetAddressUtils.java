@@ -14,8 +14,7 @@ import java.util.stream.Collectors;
 /**
  * 地址工具类
  * 
- * @author PengFei
- * @since 1.0.4
+ * @since 1.1
  */
 public final class InetAddressUtils {
 

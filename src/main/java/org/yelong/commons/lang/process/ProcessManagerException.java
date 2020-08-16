@@ -6,8 +6,7 @@ package org.yelong.commons.lang.process;
 /**
  * 程序管理异常
  * 
- * @author PengFei
- * @since 1.0.4
+ * @since 1.1
  */
 public class ProcessManagerException extends Exception {
 

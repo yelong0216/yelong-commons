@@ -11,8 +11,7 @@ import java.util.function.Predicate;
 /**
  * java.util.stream 工具类
  * 
- * @author PengFei
- * @since 1.0.3
+ * @since 1.1
  */
 public final class StreamUtils {
 

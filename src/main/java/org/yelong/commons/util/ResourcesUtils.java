@@ -11,8 +11,7 @@ import java.io.InputStream;
 /**
  * 资源工具类
  * 
- * @author PengFei
- * @since 1.0.4
+ * @since 1.1
  */
 public final class ResourcesUtils {
 
@@ -27,7 +26,7 @@ public final class ResourcesUtils {
 	 * @throws FileNotFoundException 文件不存在
 	 */
 	public static InputStream getResourceAsStream(String resource) throws FileNotFoundException {
-		Class<?> c = PropertiesUtils.class;
+		Class<?> c = ResourcesUtils.class;
 		InputStream is = null;
 		if (resource.contains(":"))
 			is = new FileInputStream(new File(resource));

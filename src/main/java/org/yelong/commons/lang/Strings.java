@@ -8,8 +8,10 @@ import java.util.Objects;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author PengFei
- * @since 1.0.2
+ * 字符串非空验证工具类
+ * 
+ * @see StringUtils
+ * @since 1.1
  */
 public final class Strings {
 

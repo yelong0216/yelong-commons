@@ -4,13 +4,9 @@
 package org.yelong.commons.lang.process;
 
 /**
- * 
- * 程序管理
- * 
  * 管理本计算机的程序。如终止进程、查询等
  * 
- * @author PengFei
- * @since 1.0.4
+ * @since 1.1
  */
 public interface ProcessManager {
 
@@ -19,7 +15,7 @@ public interface ProcessManager {
 	 * 
 	 * @param pid 进程pid
 	 * @return <tt>true</tt> 成功杀死
-	 * @throws Exception
+	 * @throws ProcessManagerException 进程管理异常
 	 */
 	boolean killProcess(int pid) throws ProcessManagerException;
 

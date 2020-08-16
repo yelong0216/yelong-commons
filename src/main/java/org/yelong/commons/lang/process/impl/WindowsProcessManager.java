@@ -10,8 +10,9 @@ import org.yelong.commons.lang.runtime.CommandExecuteResult;
 import org.yelong.commons.lang.runtime.CommandExecutor;
 
 /**
- * @author PengFei
- *
+ * windows 程序管理
+ * 
+ * @since 1.1
  */
 public class WindowsProcessManager implements ProcessManager {
 

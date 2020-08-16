@@ -8,6 +8,8 @@ import java.io.IOException;
 
 /**
  * 命令执行器
+ * 
+ * @since 1.1
  */
 public interface CommandExecutor {
 

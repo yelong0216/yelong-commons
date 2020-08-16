@@ -16,18 +16,16 @@ import org.yelong.commons.lang.runtime.DefaultCommandExecutor;
 /**
  * 应用程序工具类
  * 
- * @author PengFei
- * @since 1.0.4
+ * @since 1.1
  */
 public final class ApplicationProcessUtils {
 
-	// 不允许实例化
 	private ApplicationProcessUtils() {
 	}
 
 	private static final CommandExecutor COMMAND_EXECUTOR = new DefaultCommandExecutor();
 
-	private static final ProcessManager PROCESS_MANAGER;
+	private static ProcessManager PROCESS_MANAGER;
 
 	static {
 		// 根据当前系统创建程序管理者
@@ -36,6 +34,16 @@ public final class ApplicationProcessUtils {
 		} else {
 			PROCESS_MANAGER = null;
 		}
+	}
+
+	/**
+	 * 修改程序管理器
+	 * 
+	 * @param processManager 程序管理器
+	 * @see 2.0
+	 */
+	public static void setProcessManager(ProcessManager processManager) {
+		PROCESS_MANAGER = processManager;
 	}
 
 	/**

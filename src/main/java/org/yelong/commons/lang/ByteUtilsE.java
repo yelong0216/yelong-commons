@@ -6,9 +6,11 @@ package org.yelong.commons.lang;
 import org.apache.commons.codec.binary.Base64;
 
 /**
- * @author PengFei
+ * byte工具类
+ * 
+ * @since 1.1
  */
-public class ByteUtils {
+public class ByteUtilsE {
 
 	/**
 	 * 字节数组转换为 Base64

@@ -20,9 +20,8 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * 文件工具类。
  * 
- * @author PengFei
  * @see org.apache.commons.io.FileUtils
- * @since 1.2.0
+ * @since 1.2
  */
 public final class FileUtilsE {
 
@@ -50,18 +49,19 @@ public final class FileUtilsE {
 	public static final long ONE_TB = ONE_GB * ONE_KB;
 
 	/**
-	 * 将 base64码转换为文件
+	 * 将base64码转换为文件
 	 * 
-	 * @param base64
-	 * @param filename names the name elements
-	 * @return the file
-	 * @throws IOException
+	 * @param base64 base64码
+	 * @param names  被写入的文件名称元素
+	 * @return base64码转换为的文件
+	 * @throws IOException in case of an I/O error
+	 * @see FileUtilsE#createNewFile(String...)
 	 */
-	public static File base64ConvertFile(String base64, String... filename) throws IOException {
+	public static File base64ConvertFile(String base64, String... names) throws IOException {
 		if (StringUtils.isBlank(base64)) {
 			throw new NullPointerException();
 		}
-		File file = createNewFile(filename);
+		File file = createNewFile(names);
 		byte[] data = java.util.Base64.getDecoder().decode(base64);
 		org.apache.commons.io.FileUtils.writeByteArrayToFile(file, data);
 		return file;
@@ -70,19 +70,20 @@ public final class FileUtilsE {
 	/**
 	 * 获取文件的创建时间
 	 * 
-	 * @param fileAbsolutePath
-	 * @return 文件创建时间 ms
+	 * @param names the name elements
+	 * @return 文件创建时间(毫秒 MS)
+	 * @throws FileNotFoundException 文件不存在
 	 */
-	public static Long getFileCreateTime(String fileAbsolutePath) {
-		File file = new File(fileAbsolutePath);
+	public static Long getFileCreateTime(String... names) throws FileNotFoundException {
+		File file = getFile(names);
+		requireNonExist(file.getAbsolutePath());
 		try {
-			Path path = Paths.get(fileAbsolutePath);
+			Path path = Paths.get(file.getAbsolutePath());
 			BasicFileAttributeView basicview = Files.getFileAttributeView(path, BasicFileAttributeView.class,
 					LinkOption.NOFOLLOW_LINKS);
 			BasicFileAttributes attr = basicview.readAttributes();
 			return attr.creationTime().toMillis();
 		} catch (Exception e) {
-			e.printStackTrace();
 			return file.lastModified();
 		}
 	}
@@ -92,7 +93,8 @@ public final class FileUtilsE {
 	 * 
 	 * @param names the name elements
 	 * @return the file
-	 * @throws IOException 如果这个文件已经存在
+	 * @throws FileExistsException 这个文件已经存在
+	 * @throws IOException         in case of an I/O error
 	 */
 	public static File createNewFile(String... names) throws IOException {
 		File file = getFile(names);
@@ -113,6 +115,7 @@ public final class FileUtilsE {
 	 * 
 	 * @param names the name elements
 	 * @return the file
+	 * @throws IOException in case of an I/O error
 	 */
 	public static final File createNewFileOverride(String... names) throws IOException {
 		File file = getFile(names);
@@ -126,17 +129,15 @@ public final class FileUtilsE {
 
 	/**
 	 * <pre>
-	 * 创建目录。
+	 * 创建目录
 	 * 如果目录存在则返回它本身
 	 * 如果目录的抽象路径中的目录不存在则创建。
-	 * 注意：如果目录存在这并不会抛出异常
 	 * </pre>
 	 * 
 	 * @param names the name elements
 	 * @return the file
-	 * @throws IOException
 	 */
-	public static File createDirectory(String... names) throws IOException {
+	public static File createDirectory(String... names) {
 		File file = getFile(names);
 		if (file.exists()) {
 			return file;
@@ -148,29 +149,28 @@ public final class FileUtilsE {
 
 	/**
 	 * <pre>
-	 * 创建目录。
+	 * 创建目录
 	 * 如果目录存在则删除目录内文件
-	 * 如果目录的抽象路径中的目录不存在则创建。
+	 * 如果目录的抽象路径中的目录不存在则创建
 	 * </pre>
 	 * 
 	 * @param names the name elements
 	 * @return the file
-	 * @throws IOException
+	 * @throws IOException in case of an I/O error
 	 */
 	public static File createDirectoryOverride(String... names) throws IOException {
 		File file = getFile(names);
 		if (file.exists()) {
-			org.apache.commons.io.FileUtils.deleteDirectory(file);
+			cleanDirectory(file);
 		}
-		file.mkdirs();
 		return file;
 	}
 
 	/**
-	 * filePath的文件是否存在
+	 * 判断的文件是否存在
 	 * 
-	 * @param filePath 文件路径
-	 * @return <tt>true</tt>filePath的文件存在
+	 * @param names the name elements
+	 * @return <tt>true</tt> 文件存在
 	 */
 	public static boolean exists(String... names) {
 		if (null == names) {
@@ -180,6 +180,10 @@ public final class FileUtilsE {
 	}
 
 	/**
+	 * 从名称元素集构造一个文件
+	 *
+	 * @param names the name elements
+	 * @return the file
 	 * @see org.apache.commons.io.FileUtils#getFile
 	 */
 	public static File getFile(String... names) {
@@ -192,19 +196,20 @@ public final class FileUtilsE {
 	/**
 	 * 清空目录内的所有文件
 	 * 
-	 * Cleans a directory without deleting it.
-	 * 
 	 * @param directory directory to clean
 	 * @throws IOException              in case cleaning is unsuccessful
 	 * @throws IllegalArgumentException if {@code directory} does not exist or is
 	 *                                  not a directory
 	 */
 	public static void cleanDirectory(final File directory) throws IOException {
+		if (!directory.exists()) {
+			return;
+		}
 		org.apache.commons.io.FileUtils.cleanDirectory(directory);
 	}
 
 	/**
-	 * 删除目录(删除目录内的所有文件)
+	 * 删除目录(包含目录内的所有文件)
 	 *
 	 * @param directory directory to delete
 	 * @throws IOException              in case deletion is unsuccessful
@@ -229,13 +234,13 @@ public final class FileUtilsE {
 	/**
 	 * 文件是否存在
 	 * 
-	 * @param filePath
-	 * @return filePath
+	 * @param filePath 文件路径
+	 * @return the filePath
 	 * @throws FileNotFoundException filePath的文件不存在
 	 */
 	public static String requireNonExist(String filePath) throws FileNotFoundException {
 		if (!exists(filePath)) {
-			throw new FileNotFoundException();
+			throw new FileNotFoundException(filePath);
 		}
 		return filePath;
 	}
@@ -245,7 +250,7 @@ public final class FileUtilsE {
 	 * 
 	 * @param filePath 文件路径
 	 * @param message  异常消息
-	 * @return filePath
+	 * @return the filePath
 	 * @throws FileNotFoundException filePath的文件不存在
 	 */
 	public static String requireNonExist(String filePath, String message) throws FileNotFoundException {

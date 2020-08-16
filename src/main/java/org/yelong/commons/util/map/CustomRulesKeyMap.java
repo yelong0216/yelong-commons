@@ -17,8 +17,7 @@ import org.apache.commons.collections4.CollectionUtils;
  * 可以对一个key尝试多种方式获取value。多种方式都可以获取情况下以添加key规则的顺序靠前的为准。<br/>
  * 源key值拥有最高顺序。
  * 
- * @author PengFei
- * @since 1.0.0
+ * @since 1.0
  */
 public class CustomRulesKeyMap<K, V> extends MapWrapper<K, V> {
 
@@ -134,8 +133,6 @@ public class CustomRulesKeyMap<K, V> extends MapWrapper<K, V> {
 
 	/**
 	 * map key rule
-	 * 
-	 * @author PengFei
 	 */
 	@FunctionalInterface
 	public static interface KeyRule<K> {

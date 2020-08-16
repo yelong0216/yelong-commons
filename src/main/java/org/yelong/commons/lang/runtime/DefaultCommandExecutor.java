@@ -8,6 +8,8 @@ import java.io.IOException;
 
 /**
  * 默认的命令执行器
+ * 
+ * @since 1.1
  */
 public class DefaultCommandExecutor implements CommandExecutor {
 

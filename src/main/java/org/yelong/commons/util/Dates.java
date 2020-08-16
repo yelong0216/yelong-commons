@@ -15,16 +15,12 @@ import org.apache.commons.lang3.time.DateUtils;
 /**
  * 日期、时间工具类
  * 
- * @author PengFei
- * @since 1.0.3
  * @see DateUtils
  * @see DateFormatUtils
+ * @since 1.1
  */
 public final class Dates {
 
-	/**
-	 * 不允许实例化
-	 */
 	private Dates() {
 	}
 
@@ -57,8 +53,7 @@ public final class Dates {
 	 */
 	public static final String YYYY_Y_MM_M_DD_D = "yyyy年MM月dd日";
 
-	// ================================ 获取指定日期 之后、 之间 、相差的日期
-	// ================================
+	// ================================获取指定日期之后、之间、相差的日期================================
 
 	/**
 	 * 获取 date 日期之后 dayNum 天的所有日期 不包含date 包含最后一天
@@ -293,8 +288,7 @@ public final class Dates {
 		return getCalendar(date).get(Calendar.DAY_OF_WEEK);
 	}
 
-	// ================================ 获取当前日期，以及当前日期的年、月、日等
-	// ================================
+	// ================================获取当前日期，以及当前日期的年、月、日等================================
 
 	/**
 	 * @return 当前日期的年份

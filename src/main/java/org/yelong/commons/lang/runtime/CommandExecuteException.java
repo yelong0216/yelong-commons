@@ -2,6 +2,8 @@ package org.yelong.commons.lang.runtime;
 
 /**
  * 命令执行异常
+ * 
+ * @since 1.1
  */
 public class CommandExecuteException extends Exception {
 

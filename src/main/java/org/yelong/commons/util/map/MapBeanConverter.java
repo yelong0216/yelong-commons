@@ -15,8 +15,7 @@ import org.yelong.commons.beans.BeanUtilsE;
 /**
  * map bean 之间的互相转换
  * 
- * @author PengFei
- * @since 1.0.2
+ * @since 1.1
  */
 public class MapBeanConverter {
 

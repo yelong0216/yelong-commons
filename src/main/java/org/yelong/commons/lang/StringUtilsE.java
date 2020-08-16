@@ -6,21 +6,21 @@ package org.yelong.commons.lang;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
- * {@link String}工具类拓展。
+ * 字符串工具类拓展。
  * 
- * @author PengFei
- * @see org.apache.commons.lang3.StringUtils
- * @since 1.2.0
+ * @see StringUtils
+ * @since 1.2
  */
 public final class StringUtilsE {
 
-	// 不允许实例化
 	private StringUtilsE() {
 	}
 
 	/**
-	 * 下划线转驼峰 peng_fei ==> pengFei
+	 * 下划线转驼峰 yelong_long ==> yelongLong
 	 * 
 	 * @param str 需要转换的字符串
 	 * @return 下划线转换为驼峰后的字符串
@@ -44,7 +44,7 @@ public final class StringUtilsE {
 	}
 
 	/**
-	 * 驼峰转下划线 pengFei ==> peng_fei
+	 * 驼峰转下划线 yelongLong ==> yelong_long
 	 * 
 	 * @param str 需要转换的字符串
 	 * @return 驼峰转换为下划线后的字符串

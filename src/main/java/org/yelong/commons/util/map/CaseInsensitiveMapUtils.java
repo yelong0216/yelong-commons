@@ -11,12 +11,10 @@ import org.apache.commons.collections4.map.CaseInsensitiveMap;
 /**
  * 忽略大写Map工具类
  * 
- * @author PengFei
  * @since 1.1.0
  */
 public final class CaseInsensitiveMapUtils {
 
-	// 不允许实例化
 	private CaseInsensitiveMapUtils() {
 	}
 
@@ -97,8 +95,6 @@ public final class CaseInsensitiveMapUtils {
 
 	/**
 	 * key 存储的类型
-	 * 
-	 * @author PengFei
 	 */
 	public static enum KeyStoreMode {
 
@@ -112,7 +108,6 @@ public final class CaseInsensitiveMapUtils {
 	/**
 	 * Key 大写的 忽略大小写的Map
 	 * 
-	 * @author PengFei
 	 * @param <K> this key type
 	 * @param <V> this value type
 	 */

@@ -47,3 +47,19 @@
 	---项目统计---
 	总计代码行数：2263
 	总文件数：34
+	
+2020-08-16->2.0.0
+	---新增类---
+	org.yelong.commons.lang.EnumUtilsE
+	org.yelong.commons.lang.ClassUtilsE
+	org.yelong.commons.lang.EnumUtilsE
+	
+	---新增包---
+	org.yelong.test
+	org.yelong.commons.pojo
+	org.yelong.commons.support
+	org.yelong.commons.lang.annotation
+	
+	---项目统计---
+	总计代码行数：2948
+	总文件数：43

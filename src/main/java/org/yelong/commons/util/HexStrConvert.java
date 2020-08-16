@@ -6,7 +6,7 @@ package org.yelong.commons.util;
 /**
  * 16进制与字符串之间的转换
  * 
- * @author PengFei
+ * @since 1.0
  */
 public class HexStrConvert {
 

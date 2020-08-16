@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 
 /**
  * 命令执行后的流管理
+ * 
+ * @since 1.1
  */
 public class ProcessStreamManager {
 

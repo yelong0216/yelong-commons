@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 
 /**
  * 命令执行结果
+ * 
+ * @since 1.1
  */
 public class CommandExecuteResult {
 

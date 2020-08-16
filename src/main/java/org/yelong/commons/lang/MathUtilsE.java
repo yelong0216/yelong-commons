@@ -10,11 +10,16 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 /**
- * @author PengFei
+ * 数学工具类
+ * 
+ * @since 2.0
  */
-public class MathUtils {
+public final class MathUtilsE {
 
 	static ScriptEngine jse = new ScriptEngineManager().getEngineByName("JavaScript");
+
+	private MathUtilsE() {
+	}
 
 	/**
 	 * 除法运算，保留两位小数

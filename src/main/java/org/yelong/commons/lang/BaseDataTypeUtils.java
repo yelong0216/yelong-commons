@@ -9,14 +9,10 @@ import java.util.List;
 /**
  * 基础数据类型工具类
  * 
- * @author PengFei
- * @since 1.0.4
+ * @since 1.1
  */
 public final class BaseDataTypeUtils {
 
-	/**
-	 * 不允许实例化
-	 */
 	private BaseDataTypeUtils() {
 	}
 

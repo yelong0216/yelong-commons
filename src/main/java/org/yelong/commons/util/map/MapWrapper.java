@@ -10,8 +10,7 @@ import java.util.Set;
 /**
  * map 包装器
  * 
- * @author PengFei
- * @since 1.0.3
+ * @since 1.1
  */
 public class MapWrapper<K, V> implements Map<K, V> {
 
@@ -86,6 +85,16 @@ public class MapWrapper<K, V> implements Map<K, V> {
 	 */
 	public Map<K, V> getMap() {
 		return sourceMap;
+	}
+
+	@Override
+	public int hashCode() {
+		return sourceMap.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		return sourceMap.toString();
 	}
 
 }

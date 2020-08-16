@@ -11,7 +11,7 @@ import org.apache.commons.io.FilenameUtils;
  * 文件名称工具类拓展
  * 
  * @see FilenameUtils
- * @author PengFei
+ * @since 1.2
  */
 public final class FilenameUtilsE {
 
