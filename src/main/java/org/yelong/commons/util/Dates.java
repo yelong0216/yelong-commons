@@ -180,7 +180,7 @@ public final class Dates {
 	 * 获取指定年，月的第一天的日期
 	 * 
 	 * @param year  年份
-	 * @param month 月份
+	 * @param month 月份。注意月份以0开始，11结束
 	 * @return year年month月的第一天日期
 	 */
 	public static Date getFirstDay(int year, int month) {
@@ -196,7 +196,7 @@ public final class Dates {
 	 * 获取指定年，月的最后一天的日期
 	 * 
 	 * @param year  年份
-	 * @param month 月份
+	 * @param month 月份。注意月份以0开始，11结束
 	 * @return year年month月的最后一天日期
 	 */
 	public static Date getLastDay(int year, int month) {
@@ -204,6 +204,44 @@ public final class Dates {
 		calendar.clear();
 		calendar.set(Calendar.YEAR, year);
 		calendar.set(Calendar.MONTH, month);
+		calendar.roll(Calendar.DAY_OF_MONTH, -1);
+		Date currYearLast = calendar.getTime();
+		return currYearLast;
+	}
+
+	/**
+	 * 获取指定年，月和月的第几周的第一天的日期。注意这个日期是以周末为开始的第一天
+	 * 
+	 * @param year  年份
+	 * @param month 月份。注意月份以0开始，11结束
+	 * @return year年month月的第一天日期
+	 * @since 2.1.1
+	 */
+	public static Date getFirstDay(int year, int month, int week) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.clear();
+		calendar.set(Calendar.YEAR, year);
+		calendar.set(Calendar.MONTH, month);
+		calendar.set(Calendar.WEEK_OF_MONTH, week);
+		Date currYearFirst = calendar.getTime();
+		return currYearFirst;
+	}
+
+	/**
+	 * 获取指定年，月和月的第几周的最后一天的日期。注意这个日期是以周六为结束的最周一天
+	 * 
+	 * @param year  年份
+	 * @param month 月份。注意月份以0开始，11结束
+	 * @param week  月份中的第几周
+	 * @return year年month月的最后一天日期
+	 * @since 2.1.1
+	 */
+	public static Date getLastDay(int year, int month, int week) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.clear();
+		calendar.set(Calendar.YEAR, year);
+		calendar.set(Calendar.MONTH, month);
+		calendar.set(Calendar.WEEK_OF_MONTH, week + 1);// 下一周的第一天然后减去1天
 		calendar.roll(Calendar.DAY_OF_MONTH, -1);
 		Date currYearLast = calendar.getTime();
 		return currYearLast;
@@ -245,6 +283,17 @@ public final class Dates {
 	 */
 	public static int getMonth(Date date) {
 		return getCalendar(date).get(Calendar.MONTH);
+	}
+
+	/**
+	 * 获取指定的日期为其月份的第几周
+	 * 
+	 * @param date 日期
+	 * @return 指定的日期为其月份的第几周
+	 * @since 2.1.1
+	 */
+	public static int getWeekOfMonth(Date date) {
+		return getCalendar(date).get(Calendar.WEEK_OF_MONTH);
 	}
 
 	/**
@@ -304,6 +353,13 @@ public final class Dates {
 	 */
 	public static int nowMonth() {
 		return getMonth(nowDate());
+	}
+
+	/**
+	 * @return 当天为该月份的第几周
+	 */
+	public static int nowWeekOfMonth() {
+		return getWeekOfMonth(nowDate());
 	}
 
 	/**

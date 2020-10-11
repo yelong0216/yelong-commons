@@ -88,6 +88,8 @@ public class ProcessStreamManager {
 				while ((line = bufferedReader.readLine()) != null) {
 					if (null != listener) {
 						listener.listening(line);
+					} else {
+						System.out.println(line);
 					}
 				}
 			} catch (IOException e) {

@@ -5,10 +5,6 @@ package org.yelong;
 
 import java.util.Date;
 
-/**
- * @author YL
- *
- */
 public class Student {
 
 	private String id;

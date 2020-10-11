@@ -4,6 +4,7 @@
 package org.yelong.commons.lang.runtime;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -25,13 +26,13 @@ public class CommandExecuteResult {
 		this.process = process;
 	}
 
-	public Process getProcess() throws Exception {
+	public Process getProcess() {
 		return this.process;
 	}
 
-	public String getResultInfo() throws Exception {
+	public String getResultInfo() throws IOException {
 		if (null == resultInfo) {
-			BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream(), "GBK"));
+			BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream(), charsetName));
 			StringBuilder result = new StringBuilder();
 			String line;
 			while ((line = input.readLine()) != null) {
@@ -42,9 +43,9 @@ public class CommandExecuteResult {
 		return resultInfo;
 	}
 
-	public String getErrorInfo() throws Exception {
+	public String getErrorInfo() throws IOException {
 		if (null == errorInfo) {
-			BufferedReader input = new BufferedReader(new InputStreamReader(process.getErrorStream(), "GBK"));
+			BufferedReader input = new BufferedReader(new InputStreamReader(process.getErrorStream(), charsetName));
 			StringBuilder error = new StringBuilder();
 			String line;
 			while ((line = input.readLine()) != null) {
@@ -65,10 +66,6 @@ public class CommandExecuteResult {
 
 	/**
 	 * 创建进程流管理
-	 * 
-	 * @date 2019年11月18日上午11:39:40
-	 * @version 1.3
-	 * @return
 	 */
 	public ProcessStreamManager createProcessStreamManage() {
 		ProcessStreamManager processStreamManager = new ProcessStreamManager(process);

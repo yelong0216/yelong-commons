@@ -83,6 +83,9 @@ public final class EnumUtilsE {
 			if (code == null && enumCode == null) {
 				return e;
 			}
+			if( null == enumCode ) {
+				return null;
+			}
 			if (enumCode.equals(code)) {
 				return e;
 			}

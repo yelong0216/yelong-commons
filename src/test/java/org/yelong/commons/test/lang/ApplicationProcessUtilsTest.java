@@ -20,7 +20,7 @@ public class ApplicationProcessUtilsTest {
 	@Test
 	public void killOneself() throws ProcessManagerException {
 		System.out.println("abc");
-//		ApplicationProcessUtils.killOneself();
+		ApplicationProcessUtils.killOneself();
 		System.out.println("bcd");
 	}
 

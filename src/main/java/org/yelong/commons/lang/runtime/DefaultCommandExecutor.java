@@ -13,6 +13,8 @@ import java.io.IOException;
  */
 public class DefaultCommandExecutor implements CommandExecutor {
 
+	public static final CommandExecutor INSTANCE = new DefaultCommandExecutor();
+
 	@Override
 	public CommandExecuteResult execute(String command) throws CommandExecuteException, IOException {
 		Process process = Runtime.getRuntime().exec(command);
