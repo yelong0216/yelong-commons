@@ -44,7 +44,7 @@ public final class PropertiesUtils {
 				throw new RuntimeException("未找到配置文件：" + resource);
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return props;
 	}
