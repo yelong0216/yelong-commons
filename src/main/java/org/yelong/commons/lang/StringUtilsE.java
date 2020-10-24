@@ -66,4 +66,93 @@ public final class StringUtilsE {
 		return camelCaseToUnderscore(sb.toString());
 	}
 
+	/**
+	 * 字符串开始添加斜杠。如果字符串开始字符为斜杠则不会追加
+	 * 
+	 * @param str 需要添加斜杠的字符串
+	 * @return 添加斜杠后的字符串
+	 * @since 2.1.3
+	 */
+	public static String appendStartsSlash(String str) {
+		if (null == str) {
+			return null;
+		}
+		if (str.startsWith("/")) {
+			return str;
+		}
+		return "/" + str;
+	}
+
+	/**
+	 * 字符串结尾添加斜杠。如果字符串结尾字符为斜杠则不会追加
+	 * 
+	 * @param str 需要添加斜杠的字符串
+	 * @return 添加斜杠后的字符串
+	 * @since 2.1.3
+	 */
+	public static String appendEndsSlash(String str) {
+		if (null == str) {
+			return null;
+		}
+		if (str.endsWith("/")) {
+			return str;
+		}
+		return str + "/";
+	}
+
+	/**
+	 * 字符串开始删除斜杠
+	 * 
+	 * @param str 需要删除斜杠的字符串
+	 * @return 删除斜杠后的字符串
+	 * @since 2.1.3
+	 */
+	public static String deleteStartsSlash(String str) {
+		if (null == str) {
+			return null;
+		}
+		if (!str.endsWith("/")) {
+			return str;
+		}
+		return str.substring(1);
+	}
+
+	/**
+	 * 字符串结尾删除斜杠
+	 * 
+	 * @param str 需要删除斜杠的字符串
+	 * @return 删除斜杠后的字符串
+	 * @since 2.1.3
+	 */
+	public static String deleteEndsSlash(String str) {
+		if (null == str) {
+			return null;
+		}
+		if (!str.endsWith("/")) {
+			return str;
+		}
+		return str.substring(0, str.length() - 1);
+	}
+
+	/**
+	 * s第二个字符串在第一个字符串中出现的次数 <br/>
+	 * str1 = "abcdefc" str2 = "c" return 2
+	 * 
+	 * @param str1 第一个字符串
+	 * @param str2 第二个字符串
+	 * @return 第二个字符串在第一个字符串中出现的次数
+	 * @since 2.1.3
+	 */
+	public static int containCount(String str1, String str2) {
+		int count = 0;
+		if (!str1.contains(str2)) {
+			return count;
+		}
+		while (str1.indexOf(str2) != -1) {
+			count++;
+			str1 = str1.substring(str1.indexOf(str2) + str2.length());
+		}
+		return count;
+	}
+
 }
