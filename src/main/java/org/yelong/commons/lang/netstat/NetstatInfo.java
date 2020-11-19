@@ -1,35 +1,34 @@
 /**
  * 
  */
-package org.yelong.commons.lang.process.netstat;
+package org.yelong.commons.lang.netstat;
 
 /**
  * 网络状态信息
- * @author pengfei<yl1430834495@163.com>
- * @date 2019年11月20日下午12:00:11
- * @version 1.3
+ * 
+ * @since 2.2
  */
 public class NetstatInfo {
 
-	//协议
+	/** 协议 */
 	private String proto;
-	
-	//本地地址
+
+	/** 本地地址 */
 	private String localAddress;
-	
-	//端口号
+
+	/** 端口号 */
 	private Integer port;
-	
-	//外部地址
+
+	/** 外部地址 */
 	private String foreignAddress;
-	
-	//状态
+
+	/** 状态 */
 	private String state;
-	
-	//pid
+
+	/** PID */
 	private Integer pid;
-	
-	//程序名称
+
+	/** 程序名称 */
 	private String programName;
 
 	public String getProto() {
@@ -93,5 +92,5 @@ public class NetstatInfo {
 		return "NetstatInfo [proto=" + proto + ", localAddress=" + localAddress + ", port=" + port + ", foreignAddress="
 				+ foreignAddress + ", state=" + state + ", pid=" + pid + ", programName=" + programName + "]";
 	}
-	
+
 }

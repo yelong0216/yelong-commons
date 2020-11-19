@@ -1,34 +1,39 @@
 /**
  * 
  */
-package org.yelong.commons.lang.process;
+package org.yelong.commons.lang.process.impl.unix;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.yelong.commons.lang.process.AbstractProcessManager;
+import org.yelong.commons.lang.process.ProcessInfo;
+import org.yelong.commons.lang.process.ProcessManagerException;
+import org.yelong.commons.lang.runtime.CommandExecuteException;
 import org.yelong.commons.lang.runtime.CommandExecuteResult;
 import org.yelong.commons.lang.runtime.CommandExecutor;
 import org.yelong.commons.lang.runtime.DefaultCommandExecutor;
 
 /**
- * @author pengfei<yl1430834495@163.com>
- * @date 2019年11月20日上午11:37:16
- * @version 1.3
+ * UNIX实现
+ * 
+ * @since 2.2
  */
-public class UnixProcessCommandExecutor extends AbstractProcessCommandExecutor {
+public class UnixProcessManager extends AbstractProcessManager {
 
 	private final CommandExecutor commandExecutor = DefaultCommandExecutor.INSTANCE;
 
 	@Override
-	public boolean killByPid(Integer pid) throws Exception {
+	public boolean killProcess(int pid) throws ProcessManagerException, CommandExecuteException, IOException {
 		CommandExecuteResult commandExecuteResult = commandExecutor.execute("kill -s 9 " + pid);
 		return StringUtils.isEmpty(commandExecuteResult.getErrorInfo());
 	}
 
 	@Override
-	public List<ProcessInfo> getAll() throws Exception {
+	public List<ProcessInfo> getAll() throws ProcessManagerException, CommandExecuteException, IOException {
 		CommandExecuteResult commandExecuteResult = commandExecutor.execute("ps -ef");
 		String resultInfo = commandExecuteResult.getResultInfo();
 		List<String> processInfoLines = new ArrayList<String>(Arrays.asList(resultInfo.split("\n")));

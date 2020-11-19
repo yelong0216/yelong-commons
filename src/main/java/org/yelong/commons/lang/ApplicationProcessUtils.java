@@ -9,7 +9,7 @@ import java.util.Objects;
 import org.apache.commons.lang3.SystemUtils;
 import org.yelong.commons.lang.process.ProcessManager;
 import org.yelong.commons.lang.process.ProcessManagerException;
-import org.yelong.commons.lang.process.impl.WindowsProcessManager;
+import org.yelong.commons.lang.process.impl.windows.WindowsProcessManager;
 import org.yelong.commons.lang.runtime.CommandExecutor;
 import org.yelong.commons.lang.runtime.DefaultCommandExecutor;
 
@@ -23,7 +23,7 @@ public final class ApplicationProcessUtils {
 	private ApplicationProcessUtils() {
 	}
 
-	private static final CommandExecutor COMMAND_EXECUTOR = new DefaultCommandExecutor();
+	public static CommandExecutor COMMAND_EXECUTOR = DefaultCommandExecutor.INSTANCE;
 
 	private static ProcessManager PROCESS_MANAGER;
 
@@ -65,7 +65,6 @@ public final class ApplicationProcessUtils {
 	 * 终止当前程序（杀死自己的进程）
 	 * 
 	 * @return <tt>true</tt> 当进程成功被杀死时，这个返回值不具有任何意义（程序都终止了，就不会在运行了）
-	 * @throws ProcessManagerException
 	 */
 	public static boolean killOneself() throws ProcessManagerException {
 		validateProcessManager();
@@ -73,7 +72,13 @@ public final class ApplicationProcessUtils {
 		if (null == oneselfPid) {
 			throw new NullPointerException("未能识别当前程序的PID");
 		}
-		return PROCESS_MANAGER.killProcess(oneselfPid);
+		try {
+			return PROCESS_MANAGER.killProcess(oneselfPid);
+		} catch (ProcessManagerException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new ProcessManagerException(e);
+		}
 	}
 
 	private static void validateProcessManager() {

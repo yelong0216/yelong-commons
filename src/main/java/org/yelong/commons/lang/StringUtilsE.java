@@ -155,4 +155,37 @@ public final class StringUtilsE {
 		return count;
 	}
 
+	/**
+	 * 字符串替换，左边第一个。这个不适用正则。
+	 * 
+	 * @param str    源字符串
+	 * @param oldStr 目标字符串
+	 * @param newStr 替换字符串
+	 * @return 替换后的字符串
+	 */
+	public static String replaceFirst(String str, String oldStr, String newStr) {
+		int i = str.indexOf(oldStr);
+		if (i == -1)
+			return str;
+		str = str.substring(0, i) + newStr + str.substring(i + oldStr.length());
+		return str;
+	}
+
+	/**
+	 * 字符串替换，从头到尾查询一次，替换后的字符串不检查。这个不适用正则。
+	 * 
+	 * @param str    源字符串
+	 * @param oldStr 目标字符串
+	 * @param newStr 替换字符串
+	 * @return 替换后的字符串
+	 */
+	public static String replaceAll(String str, String oldStr, String newStr) {
+		int i = str.indexOf(oldStr);
+		while (i != -1) {
+			str = str.substring(0, i) + newStr + str.substring(i + oldStr.length());
+			i = str.indexOf(oldStr, i + newStr.length());
+		}
+		return str;
+	}
+
 }

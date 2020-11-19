@@ -20,6 +20,8 @@ public final class IOUtilsE {
 
 	public final static int DEFAULT_BUFFER_SIZE = 1024 * 4;
 
+	public final static Charset defaultCharset = Charset.forName("UTF-8");
+
 	private IOUtilsE() {
 	}
 
@@ -33,7 +35,7 @@ public final class IOUtilsE {
 	 * @throws IOException 流读取异常
 	 */
 	public static String readString(InputStream in) throws IOException {
-		return readString(new InputStreamReader(in, Charset.defaultCharset()));
+		return readString(new InputStreamReader(in, defaultCharset));
 	}
 
 	/**

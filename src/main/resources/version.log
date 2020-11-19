@@ -82,3 +82,13 @@
 2020-10-24->2.1.3
 
 	新增部分方法
+	
+2020-11-19->2.2.0
+
+	新增org.yelong.commons.lang.netstat包
+	新增org.yelong.commons.lang.CharsetUtilsE类
+	更新org.yelong.commons.lang.process包。新增方法
+	
+	---项目统计---
+	总计代码行数：4055
+	总文件数：59

@@ -5,6 +5,7 @@ package org.yelong.commons.lang.annotation;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import org.apache.commons.lang3.AnnotationUtils;
@@ -219,6 +220,26 @@ public final class AnnotationUtilsE {
 	public static <A extends Annotation> A getAnnotation(Field field, Class<A> annotation) {
 		if (field.isAnnotationPresent(annotation)) {
 			return field.getAnnotation(annotation);
+		}
+		return null;
+	}
+
+	/**
+	 * <p>
+	 * 获取方法上面的注解
+	 * </p>
+	 * 
+	 * 如果方法未标注该类型的注解则返回 <code>null</code>
+	 * 
+	 * @param <A>        annotation type
+	 * @param method     方法
+	 * @param annotation 注解类型
+	 * @return 字段存在annotation类型的注解则返回 annotation ，否则返回 <code>null</code>
+	 * @since 2.2
+	 */
+	public static <A extends Annotation> A getAnnotation(Method method, Class<A> annotation) {
+		if (method.isAnnotationPresent(annotation)) {
+			return method.getAnnotation(annotation);
 		}
 		return null;
 	}

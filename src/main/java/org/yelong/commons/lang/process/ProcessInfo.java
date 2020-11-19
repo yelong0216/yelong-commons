@@ -4,28 +4,25 @@
 package org.yelong.commons.lang.process;
 
 /**
- * 进程
- * @author pengfei<yl1430834495@163.com>
- * @date 2019年11月14日下午4:13:08
- * @version 1.3
+ * 进程信息
+ * 
+ * @since 2.2
  */
 public class ProcessInfo {
 
 	private String name;
-	
+
 	private int pid;
-	
+
 	private String sessionName;
-	
+
 	private String session;
-	
-	/**
-	 * 占用内存：kb
-	 */
+
+	/** 占用内存：kb */
 	private String internalStorage;
 
 	private String cmd;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -79,7 +76,5 @@ public class ProcessInfo {
 		return "ProcessInfo [name=" + name + ", pid=" + pid + ", sessionName=" + sessionName + ", session=" + session
 				+ ", internalStorage=" + internalStorage + ", cmd=" + cmd + "]";
 	}
-	
-	
-	
+
 }

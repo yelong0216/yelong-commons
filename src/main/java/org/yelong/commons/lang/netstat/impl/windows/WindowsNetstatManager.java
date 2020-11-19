@@ -1,28 +1,42 @@
 /**
  * 
  */
-package org.yelong.commons.lang.process.netstat;
+package org.yelong.commons.lang.netstat.impl.windows;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
+import org.yelong.commons.lang.netstat.AbstractNetstatManager;
+import org.yelong.commons.lang.netstat.NetstatInfo;
+import org.yelong.commons.lang.netstat.NetstatManageException;
+import org.yelong.commons.lang.runtime.CommandExecuteException;
 import org.yelong.commons.lang.runtime.CommandExecuteResult;
 import org.yelong.commons.lang.runtime.CommandExecutor;
 import org.yelong.commons.lang.runtime.DefaultCommandExecutor;
 
 /**
- * @author pengfei<yl1430834495@163.com>
- * @date 2019年11月20日下午2:03:37
- * @version 1.3
+ * windows 实现
+ * 
+ * @since 2.2
  */
-public class WindowsNetstatCommandExecutor extends AbstractNetstatCommandExecutor {
-	
-	private final CommandExecutor commandExecutor = DefaultCommandExecutor.INSTANCE;
+public class WindowsNetstatManager extends AbstractNetstatManager {
+
+	protected final CommandExecutor commandExecutor;
+
+	public WindowsNetstatManager() {
+		this(DefaultCommandExecutor.INSTANCE);
+	}
+
+	public WindowsNetstatManager(CommandExecutor commandExecutor) {
+		this.commandExecutor = Objects.requireNonNull(commandExecutor);
+	}
 
 	@Override
-	public List<NetstatInfo> getAll() throws Exception {
+	public List<NetstatInfo> getAll() throws NetstatManageException, CommandExecuteException, IOException {
 		CommandExecuteResult commandExecuteResult = commandExecutor.execute("netstat -ano");
 		StringBuilder resultInfo = new StringBuilder(commandExecuteResult.getResultInfo());
 		// 删除前四行
